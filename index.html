@@ -7,16 +7,228 @@
   <title>Alice Sucks</title>
 
   <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+    crossorigin="anonymous">
+  <!-- Add facebook API -->
+  <!-- add Twitter API -->
+  <!-- Add Firebase API -->
+
+
 
 </head>
+
 <body>
-    <div class="jumbotron">
-      <h1 class="text-center">Unicorn Enterprises LLC</h1>
+
+  <div class="container">
+  <div class="jumbotron">
+    <h1 class="text-center">Rose Quartz</h1>
+  </div>
+
+  <div class="row">
+
+    <div class="col-lg-12">
+
+      <!-- Add Account  -->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <strong>Add Account</strong>
+          </h3>
+        </div>
+
+
+        <div class="panel-body">
+          <!-- Entry Form for Social Media Accounts -->
+          <form>
+            <div class="form-group">
+              <label for="facebook-input">Account Name</label>
+              <h4>This is where it would make sense on how to add and or authenticate accounts</h4>
+              <input class="form-control" id="fb-account-input" type="text">
+            </div>
+            <div class="form-group">
+              <label for="facebook-link">Link</label>
+              <input class="form-control" id="fb-link-input" type="text">
+            </div>
+            <button class="btn btn-primary" id="submit" type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+
+
+      <div class="row">
+    <!-- Facebook Account 1 -->
+        <div class="col-md-6">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">
+                <strong>Facebook Account 1</strong>
+              </h3>
+            </div>
+            <div class="panel-body">
+              <table class="table table-hover" id='facebook-account-1'>
+                <thead>
+                  <tr>
+                    <th>Account Name</th>
+                    <th>Page Likes</th>
+                    <th>Impressions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      <!-- Facebook Account 2 -->
+        <div class="col-md-6">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">
+                <strong>Facebook Account 2</strong>
+              </h3>
+            </div>
+            <div class="panel-body">
+              <table class="table table-hover" id='facebook-account-2'>
+                <thead>
+                  <tr>
+                    <th>Account Name</th>
+                    <th>Page Likes</th>
+                    <th>Impressions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+          <!-- Instagram Account 1 -->
+              <div class="col-md-6">
+                <div class="panel panel-danger">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">
+                      <strong>Instagram Account 1</strong>
+                    </h3>
+                  </div>
+                  <div class="panel-body">
+                    <table class="table table-hover" id='instagram-account-1'>
+                      <thead>
+                        <tr>
+                          <th>Instagram Handle</th>
+                          <th>Followers</th>
+                          <th>Total Likes</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+      
+            <!-- Instagram Account 2 -->
+              <div class="col-md-6">
+                <div class="panel panel-danger">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">
+                      <strong>Instagram Account 2</strong>
+                    </h3>
+                  </div>
+                  <div class="panel-body">
+                    <table class="table table-hover" id='instagram-account-2'>
+                      <thead>
+                        <tr>
+                            <th>Instagram Handle</th>
+                            <th>Followers</th>
+                            <th>Total Likes</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+      <!-- Twitter Account 1 --> 
+      <div class="row">
+
+          <div class="col-md-6">
+              <div class="panel panel-info">
+                <div class="panel-heading">
+                  <h3 class="panel-title">
+                    <strong>Twitter Account 1</strong>
+                  </h3>
+                </div>
+                <div class="panel-body">
+                  <table class="table table-hover" id='twitter-account-1'>
+                    <thead>
+                      <tr>
+                        <th>Twitter Handle</th>
+                        <th>Followers</th>
+                        <th>Impressions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+    
+          <!-- Twitter Account 2 -->
+            <div class="col-md-6">
+              <div class="panel panel-info">
+                <div class="panel-heading">
+                  <h3 class="panel-title">
+                    <strong>Twitter Account 2</strong>
+                  </h3>
+                </div>
+                <div class="panel-body">
+                  <table class="table table-hover" id='twitter-account-2'>
+                    <thead>
+                      <tr>
+                        <th>Twitter Handle</th>
+                        <th>Followers</th>
+                        <th>Impressions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+      </div>
+
+
+
+
+
+
     </div>
-    <p>What do tigers dream of when they take a little tiger snooze?</p>
+  </div>
+  </div>
 
-    <h1>somos branch testing</h1>
+</div>
 
-  </body>
+
+</body>
+
 </html>
