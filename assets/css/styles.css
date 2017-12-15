@@ -1,0 +1,29 @@
+.demo-card-wide.mdl-card {
+    width: 100%;
+  }
+  .demo-card-wide > .mdl-card__title {
+    color: #fff;
+    height: 300px;
+    background: url('../images/crystal.jpg') center / cover;
+  }
+  .demo-card-wide > .mdl-card__menu {
+    color: #fff;
+  }
+
+  .demo-card-square.mdl-card {
+    width: 100%;
+    height: 100%;
+  }
+  .demo-card-square > .mdl-card__title {
+    color: #fff;
+    background-color: #4368ad;
+      
+  }
+
+  .paddingTop {
+      padding-top: 1em;
+  }
+
+  .paddingBottom {
+      padding-bottom: 1em;
+  }
