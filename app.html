@@ -1,0 +1,102 @@
+<!-- instructions:
+run python -m SimpleHTTPServer
+in terminal
+
+Make sure that your domain is http://localhost:8000/ProjectTest/index.html
+(put the file in a folder called ProjectOne on your desktop)
+
+Get fresh access token for our project using the Graph API Explorer -->
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Test1</title>
+</head>
+
+<body>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId: '1968644966792089',
+        cookie: true,
+        xfbml: true,
+        version: 'v2.11'
+      });
+
+      FB.AppEvents.logPageView();
+
+      FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+          // the user is logged in and has authenticated your
+          // app, and response.authResponse supplies
+          // the user's ID, a valid access token, a signed
+          // request, and the time the access token
+          // and signed request each expire
+          var uid = response.authResponse.userID;
+          var accessToken = response.authResponse.accessToken;
+          console.log(accessToken);
+          FB.api(
+            '/me',
+            'GET', {
+              "fields": "id,name,likes",
+              "access_token": accessToken
+            },
+            function(response) {
+              console.log(response);
+            }
+          );
+        } else if (response.status === 'not_authorized') {
+          // the user is logged in to Facebook,
+          // but has not authenticated your app
+        } else {
+          // the user isn't logged in to Facebook.
+          FB.login(function(response) {
+            console.log(response);
+            if (response.authResponse) {
+              console.log('Welcome!  Fetching your information.... ');
+              FB.api('/me', function(response) {
+                console.log('Good to see you, ' + response.name + '.');
+              });
+            } else {
+              console.log('User cancelled login or did not fully authorize.');
+            }
+          }, {scope: 'email,user_likes',
+              return_scopes: true});
+        }
+      });
+    };
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        return;
+      }
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+
+    // Only works after `FB.init` is called
+    function myFacebookLogin() {
+      FB.login(function(response) {
+        if (response.authResponse) {
+          console.log('Welcome!  Fetching your information.... ');
+          FB.api('/me', function(response) {
+            console.log('Good to see you, ' + response.name + '.');
+          });
+        } else {
+          console.log('User cancelled login or did not fully authorize.');
+        }
+      });
+    };
+  </script>
+
+
+</body>
+
+</html>
