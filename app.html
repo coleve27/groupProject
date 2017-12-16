@@ -43,33 +43,27 @@ Get fresh access token for our project using the Graph API Explorer -->
             console.log(accessToken);
 
             FB.api(
-              '/me',
               'GET', {
-              "fields": "accounts"
-            },
-            function(response) {
-              console.log(response.accounts.data[0].access_token);
-              var page_token = response.accounts.data[0].access_token;
+                "fields": "https://graph.facebook.com/kittiesonfleek?fields=access_token"
 
-              FB.api(
-                '/kittiesonfleek',
-                'GET', {
-                  "fields": "fan_count,page_token,insights.metric(page_impressions)",
-                  "access_token" : accessToken
-                },
-                function(response) {
-                  console.log(response);
-                }
-              );
+              },
+              function(reponse) {
+                console.log(response);
+                console.log(response.authResponse.accessToken)
+                var pageToken = response.authResponse.accessToken;
+
+                FB.api(
+                  '/kittiesonfleek',
+                  'GET', {
+                    "fields": "fan_count,page_token,insights.metric(page_impressions)",
+                    "access_token": "EAAbZBeNZCvO5kBAH7UdgreybMufrjRvW7tbEOf9ZBMTTpvTPfeOKGzLhCMtNH58Eb25GCSFDoolCTLrUl3zZAPGpMDZBqchpAzLHZCm7Td0vbBRZBtk1fvFqtRECqcyhhG0N8w3ey7DMQvZA1c6UkdLJPF33G4YO4mLb6xFjDetAiUKQ6fklhoC2ZAbUIes7pyJYZD"
+                  },
+                  function(response) {
+                    console.log(response);
+                  });
+
               }
             )
-
-
-
-
-
-
-
 
         } else if (response.status === 'not_authorized') {
           // the user is logged in to Facebook,
@@ -87,12 +81,13 @@ Get fresh access token for our project using the Graph API Explorer -->
               console.log('User cancelled login or did not fully authorize.');
             }
           }, {
-            scope: 'email,user_likes,manage_pages, publish_pages, account_linking_token',
+            scope: 'email,user_likes, manage_pages, publish_pages, account_linking_token',
             return_scopes: true
           });
         }
       });
     };
+
     (function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) {
