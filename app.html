@@ -19,6 +19,8 @@ Get fresh access token for our project using the Graph API Explorer -->
 
 <body>
   <script>
+
+  // initiate SDK
     window.fbAsyncInit = function() {
       FB.init({
         appId: '1968644966792089',
@@ -42,6 +44,8 @@ Get fresh access token for our project using the Graph API Explorer -->
 
             console.log(accessToken);
 
+            // gets access token for page
+
             FB.api(
               'GET', {
                 "fields": "https://graph.facebook.com/kittiesonfleek?fields=access_token"
@@ -50,6 +54,7 @@ Get fresh access token for our project using the Graph API Explorer -->
               function(reponse) {
                 console.log(response);
                 console.log(response.authResponse.accessToken)
+                // sets access token as variable
                 var pageToken = response.authResponse.accessToken;
 
                 FB.api(

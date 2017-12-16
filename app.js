@@ -5,8 +5,9 @@
 document.getElementById("searchBox").focus();
 let pageSearchApp = {
     loader: document.getElementsByClassName("loader")[0],
-    
+
     /** Invoked while pressing enter key on searchBox **/
+
     /////////////*From FACEBOOK, Api URL and Access token search tool */////////////////////
     onSearchFieldEnter: function (ev) {
         var that = this,
@@ -28,6 +29,9 @@ let pageSearchApp = {
         }
     },
     /////////////*From FACEBOOK, Api URL and Access token search tool */////////////////////
+
+
+
 
 
 
@@ -58,14 +62,14 @@ let pageSearchApp = {
                     card += "<h4><b>" + resultData.name + "</b></h4>";
                     card += "<p>" + resultData.category + "</p>";
                     card += "<p>Likes: " + resultData.engagement.social_sentence + "</p>";
-                    //console.log("People who Like this: " + resultData.engagement.count); 
+                    //console.log("People who Like this: " + resultData.engagement.count);
                     card += "</div>";
                     card += "</div>";
                     dom += card;
                 });
                 pagesContainer.innerHTML = dom;
             }
-            //if no response are found 
+            //if no response are found
             else {
                 pagesContainer.innerHTML = "<h1>No Results Found.</h1>";
             }
@@ -85,7 +89,103 @@ let pageSearchApp = {
     },
 
 
-
-
 };
 
+//////////////////*Initialize SDK for Facebook *////////////////////////
+window.fbAsyncInit = function() {
+  FB.init({
+    appId: '1968644966792089',
+    page_token: 'kittiesonfleek',
+    cookie: true,
+    xfbml: true,
+    version: 'v2.11'
+  });
+
+  FB.AppEvents.logPageView();
+
+  FB.getLoginStatus(function(response) {
+      if (response.status === 'connected') {
+        // the user is logged in and has authenticated your
+        // app, and response.authResponse supplies
+        // the user's ID, a valid access token, a signed
+        // request, and the time the access token
+        // and signed request each expire
+        var uid = response.authResponse.userID;
+        var accessToken = response.authResponse.accessToken;
+
+        console.log(accessToken);
+
+        // gets access token for page
+
+        FB.api(
+          'GET', {
+            "fields": "https://graph.facebook.com/kittiesonfleek?fields=access_token"
+
+          },
+          function(reponse) {
+            console.log(response);
+            console.log(response.authResponse.accessToken)
+            // sets access token as variable
+            var pageToken = response.authResponse.accessToken;
+
+            FB.api(
+              '/kittiesonfleek',
+              'GET', {
+                "fields": "fan_count,page_token,insights.metric(page_impressions)",
+                "access_token": "EAAbZBeNZCvO5kBAH7UdgreybMufrjRvW7tbEOf9ZBMTTpvTPfeOKGzLhCMtNH58Eb25GCSFDoolCTLrUl3zZAPGpMDZBqchpAzLHZCm7Td0vbBRZBtk1fvFqtRECqcyhhG0N8w3ey7DMQvZA1c6UkdLJPF33G4YO4mLb6xFjDetAiUKQ6fklhoC2ZAbUIes7pyJYZD"
+              },
+              function(response) {
+                console.log(response);
+              });
+
+          }
+        )
+
+    } else if (response.status === 'not_authorized') {
+      // the user is logged in to Facebook,
+      // but has not authenticated your app
+    } else {
+      // the user isn't logged in to Facebook.
+      FB.login(function(response) {
+        console.log(response);
+        if (response.authResponse) {
+          console.log('Welcome!  Fetching your information.... ');
+          FB.api('/me', function(response) {
+            console.log('Good to see you, ' + response.name + '.');
+          });
+        } else {
+          console.log('User cancelled login or did not fully authorize.');
+        }
+      }, {
+        scope: 'email,user_likes, manage_pages, publish_pages, account_linking_token',
+        return_scopes: true
+      });
+    }
+  });
+};
+
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {
+    return;
+  }
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://connect.facebook.net/en_US/sdk.js";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+
+// Only works after `FB.init` is called
+function myFacebookLogin() {
+  FB.login(function(response) {
+    if (response.authResponse) {
+      console.log('Welcome!  Fetching your information.... ');
+      FB.api('/me', function(response) {
+        console.log('Good to see you, ' + response.name + '.');
+      });
+    } else {
+      console.log('User cancelled login or did not fully authorize.');
+    }
+  });
+};
