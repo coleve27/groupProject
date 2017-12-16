@@ -4,7 +4,7 @@
 <head>
 
   <meta charset="UTF-8">
-  <title>Alice Is Awesome</title>
+  <title>RQTZ</title>
 
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
@@ -21,7 +21,9 @@
   <!-- Add Firebase API -->
   <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
 
-
+  <!--Google Charts-->
+  
+  
 
 </head>
 
@@ -63,8 +65,64 @@
                 </div>    
             </div>
         </div>
+        <!--graph section and search section-->
+        <div class="row paddingTop paddingBottom">
+            <div class="col-md-12">
+                <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__title mdl-card--expand">
+                      <h2 class="mdl-card__title-text">Facebook Insights</h2>
+                    </div>
+                    <div class="container">
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input" type="number" id="fbPageID1">
+                                <label class="mdl-textfield__label" for="fbpageID1">Facebook Page ID #1</label>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                  <input class="mdl-textfield__input" type="number" id="fbPageID2">
+                                  <label class="mdl-textfield__label" for="fbpageID2">Facebook Page ID #2</label>
+                              </div>
+                          </div>  
+                        </div>
+                        <div class="container">
+                          <div class="row">    
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                                Submit
+                          </button>
+                        </div>  
+                          </div> 
+                        <div class="container">
+                          <div class="row">
+                            <div class="searchContainer paddingTop">
+                              <!--search stuff goes here-->
+
+
+                            </div>
+                          </div>
+                        </div>   
+                      </div>
+                    </div>  
+                    <div class="mdl-card__supporting-text">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Aenan convallis.
+                    </div>
+                    <!--graph?-->
+                    <div id="myPieChart"/>
+                    <!--end of graph-->
+                    <div class="mdl-card__actions mdl-card--border">
+                      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                        View Updates
+                      </a>
+                    </div>
+                  </div>
+            </div>
+          </div>         
         
-        <!--<div class="container">-->
+        <!--<div class="container">
           <div class="row paddingTop paddingBottom">
             <div class="col-md-6">
                 <div class="demo-card-square mdl-card mdl-shadow--2dp">
@@ -83,6 +141,7 @@
                             <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                                 Submit
                           </button>
+
                           </div>  
                       </div>
                     </div>  
@@ -118,214 +177,7 @@
 
       </div>
     </div>   
-  <div class="container">
-  <div class="jumbotron">
-    <h1 class="text-center">Rose Quartz</h1>
-  </div>
 
-  <div class="row">
-
-    <div class="col-lg-12">
-
-      <!-- Add Account  -->
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">
-            <strong>Add Account</strong>
-          </h3>
-        </div>
-
-
-        <div class="panel-body">
-          <!-- Entry Form for Social Media Accounts -->
-          <form>
-            <div class="form-group">
-              <label for="facebook-input">Account Name</label>
-              <h4>This is where it would make sense on how to add and or authenticate accounts</h4>
-              <input class="form-control" id="fb-account-input" type="text">
-            </div>
-            <div class="form-group">
-              <label for="facebook-link">Link</label>
-              <input class="form-control" id="fb-link-input" type="text">
-            </div>
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                Submit
-              </button>
-          </form>
-        </div>
-      </div>
-
-
-      <div class="row">
-    <!-- Facebook Account 1 -->
-        <div class="col-md-6">
-          <div class="panel panel-primary">
-            <div class="panel-heading">
-              <h3 class="panel-title">
-                <strong>Facebook Account 1</strong>
-              </h3>
-            </div>
-            <div class="panel-body">
-              <table class="table table-hover" id='facebook-account-1'>
-                <thead>
-                  <tr>
-                    <th>Account Name</th>
-                    <th>Page Likes</th>
-                    <th>Impressions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-      <!-- Facebook Account 2 -->
-        <div class="col-md-6">
-          <div class="panel panel-primary">
-            <div class="panel-heading">
-              <h3 class="panel-title">
-                <strong>Facebook Account 2</strong>
-              </h3>
-            </div>
-            <div class="panel-body">
-              <table class="table table-hover" id='facebook-account-2'>
-                <thead>
-                  <tr>
-                    <th>Account Name</th>
-                    <th>Page Likes</th>
-                    <th>Impressions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-          <!-- Instagram Account 1 -->
-              <div class="col-md-6">
-                <div class="panel panel-danger">
-                  <div class="panel-heading">
-                    <h3 class="panel-title">
-                      <strong>Instagram Account 1</strong>
-                    </h3>
-                  </div>
-                  <div class="panel-body">
-                    <table class="table table-hover" id='instagram-account-1'>
-                      <thead>
-                        <tr>
-                          <th>Instagram Handle</th>
-                          <th>Followers</th>
-                          <th>Total Likes</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-      
-            <!-- Instagram Account 2 -->
-              <div class="col-md-6">
-                <div class="panel panel-danger">
-                  <div class="panel-heading">
-                    <h3 class="panel-title">
-                      <strong>Instagram Account 2</strong>
-                    </h3>
-                  </div>
-                  <div class="panel-body">
-                    <table class="table table-hover" id='instagram-account-2'>
-                      <thead>
-                        <tr>
-                            <th>Instagram Handle</th>
-                            <th>Followers</th>
-                            <th>Total Likes</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-
-
-      <!-- Twitter Account 1 --> 
-      <div class="row">
-
-          <div class="col-md-6">
-              <div class="panel panel-info">
-                <div class="panel-heading">
-                  <h3 class="panel-title">
-                    <strong>Twitter Account 1</strong>
-                  </h3>
-                </div>
-                <div class="panel-body">
-                  <table class="table table-hover" id='twitter-account-1'>
-                    <thead>
-                      <tr>
-                        <th>Twitter Handle</th>
-                        <th>Followers</th>
-                        <th>Impressions</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-    
-          <!-- Twitter Account 2 -->
-            <div class="col-md-6">
-              <div class="panel panel-info">
-                <div class="panel-heading">
-                  <h3 class="panel-title">
-                    <strong>Twitter Account 2</strong>
-                  </h3>
-                </div>
-                <div class="panel-body">
-                  <table class="table table-hover" id='twitter-account-2'>
-                    <thead>
-                      <tr>
-                        <th>Twitter Handle</th>
-                        <th>Followers</th>
-                        <th>Impressions</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-
-
-
-
-
-
-
-
-      </div>
-
-
-
-
-
-
-    </div>
-  </div>
-  </div>
 
 </div>
 <!--MDL Script File -->
