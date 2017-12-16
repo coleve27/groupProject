@@ -19,8 +19,7 @@ Get fresh access token for our project using the Graph API Explorer -->
 
 <body>
   <script>
-    // Facebook SDK 
-    window.fbAsyncInit = function () {
+    window.fbAsyncInit = function() {
       FB.init({
         appId: '1968644966792089',
         page_token: 'kittiesonfleek',
@@ -30,33 +29,7 @@ Get fresh access token for our project using the Graph API Explorer -->
       });
 
       FB.AppEvents.logPageView();
-      
-   
 
-<<<<<<< HEAD
-
-
-      FB.getLoginStatus(function (response) {
-        if (response.status === 'connected') {
-          // the user is logged in and has authenticated your
-          // app, and response.authResponse supplies
-          // the user's ID, a valid access token, a signed
-          // request, and the time the access token
-          // and signed request each expire
-          var uid = response.authResponse.userID;
-          var accessToken = response.authResponse.accessToken;
-          console.log(accessToken);
-          FB.api(
-            '/me',
-            'GET', {
-              "fields": "id,name,likes",
-              "access_token": accessToken
-            },
-            function (response) {
-              console.log(response);
-            }
-          );
-=======
       FB.getLoginStatus(function(response) {
           if (response.status === 'connected') {
             // the user is logged in and has authenticated your
@@ -92,44 +65,30 @@ Get fresh access token for our project using the Graph API Explorer -->
               }
             )
 
->>>>>>> cd2181c04e409584f3f924aad36c97b2cdab85fd
         } else if (response.status === 'not_authorized') {
           // the user is logged in to Facebook,
           // but has not authenticated your app
         } else {
           // the user isn't logged in to Facebook.
-          FB.login(function (response) {
+          FB.login(function(response) {
             console.log(response);
             if (response.authResponse) {
               console.log('Welcome!  Fetching your information.... ');
-              FB.api('/me', function (response) {
+              FB.api('/me', function(response) {
                 console.log('Good to see you, ' + response.name + '.');
               });
             } else {
               console.log('User cancelled login or did not fully authorize.');
             }
           }, {
-<<<<<<< HEAD
-            scope: 'email,user_likes',
-              return_scopes: true
-            });
-=======
             scope: 'email,user_likes, manage_pages, publish_pages, account_linking_token',
             return_scopes: true
           });
->>>>>>> cd2181c04e409584f3f924aad36c97b2cdab85fd
         }
       });
-
     };
 
-<<<<<<< HEAD
-
-
-    (function (d, s, id) {
-=======
     (function(d, s, id) {
->>>>>>> cd2181c04e409584f3f924aad36c97b2cdab85fd
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) {
         return;
@@ -138,17 +97,15 @@ Get fresh access token for our project using the Graph API Explorer -->
       js.id = id;
       js.src = "https://connect.facebook.net/en_US/sdk.js";
       fjs.parentNode.insertBefore(js, fjs);
-    }
-    
-    (document, 'script', 'facebook-jssdk'));
+    }(document, 'script', 'facebook-jssdk'));
 
 
     // Only works after `FB.init` is called
     function myFacebookLogin() {
-      FB.login(function (response) {
+      FB.login(function(response) {
         if (response.authResponse) {
           console.log('Welcome!  Fetching your information.... ');
-          FB.api('/me', function (response) {
+          FB.api('/me', function(response) {
             console.log('Good to see you, ' + response.name + '.');
           });
         } else {

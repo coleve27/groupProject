@@ -22,9 +22,9 @@ let pageSearchApp = {
         }
         else {
             pagesContainer.innerHTML = "<pre>\
-										<h1>Oops...! You forgot to enter the page!!!</h1>\
-										<h1>Please enter the page to be searched...</h1>\
-									</pre>";
+                                        <h1>Oops...! You forgot to enter the page!!!</h1>\
+                                        <h1>Please enter the page to be searched...</h1>\
+                                    </pre>";
         }
     },
     /////////////*From FACEBOOK, Api URL and Access token search tool */////////////////////
@@ -32,7 +32,7 @@ let pageSearchApp = {
 
 
 
-    /////////////////*	Makes a div card to display the 5 results of the search query *///////////////////////////
+    /////////////////*  Makes a div card to display the 5 results of the search query *///////////////////////////
     onClickCard: function (card) {
         window.open("http://facebook.com/" + card.getAttribute("pageid"), "_blank");
     },
@@ -88,3 +88,4 @@ let pageSearchApp = {
 
 
 };
+
