@@ -19,7 +19,8 @@ Get fresh access token for our project using the Graph API Explorer -->
 
 <body>
   <script>
-    window.fbAsyncInit = function() {
+    // Facebook SDK 
+    window.fbAsyncInit = function () {
       FB.init({
         appId: '1968644966792089',
         cookie: true,
@@ -28,8 +29,12 @@ Get fresh access token for our project using the Graph API Explorer -->
       });
 
       FB.AppEvents.logPageView();
+      
+   
 
-      FB.getLoginStatus(function(response) {
+
+
+      FB.getLoginStatus(function (response) {
         if (response.status === 'connected') {
           // the user is logged in and has authenticated your
           // app, and response.authResponse supplies
@@ -45,7 +50,7 @@ Get fresh access token for our project using the Graph API Explorer -->
               "fields": "id,name,likes",
               "access_token": accessToken
             },
-            function(response) {
+            function (response) {
               console.log(response);
             }
           );
@@ -54,22 +59,28 @@ Get fresh access token for our project using the Graph API Explorer -->
           // but has not authenticated your app
         } else {
           // the user isn't logged in to Facebook.
-          FB.login(function(response) {
+          FB.login(function (response) {
             console.log(response);
             if (response.authResponse) {
               console.log('Welcome!  Fetching your information.... ');
-              FB.api('/me', function(response) {
+              FB.api('/me', function (response) {
                 console.log('Good to see you, ' + response.name + '.');
               });
             } else {
               console.log('User cancelled login or did not fully authorize.');
             }
-          }, {scope: 'email,user_likes',
-              return_scopes: true});
+          }, {
+            scope: 'email,user_likes',
+              return_scopes: true
+            });
         }
       });
+
     };
-    (function(d, s, id) {
+
+
+
+    (function (d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) {
         return;
@@ -78,15 +89,17 @@ Get fresh access token for our project using the Graph API Explorer -->
       js.id = id;
       js.src = "https://connect.facebook.net/en_US/sdk.js";
       fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
+    }
+    
+    (document, 'script', 'facebook-jssdk'));
 
 
     // Only works after `FB.init` is called
     function myFacebookLogin() {
-      FB.login(function(response) {
+      FB.login(function (response) {
         if (response.authResponse) {
           console.log('Welcome!  Fetching your information.... ');
-          FB.api('/me', function(response) {
+          FB.api('/me', function (response) {
             console.log('Good to see you, ' + response.name + '.');
           });
         } else {
