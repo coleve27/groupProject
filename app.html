@@ -22,6 +22,7 @@ Get fresh access token for our project using the Graph API Explorer -->
     window.fbAsyncInit = function() {
       FB.init({
         appId: '1968644966792089',
+        page_token: 'kittiesonfleek',
         cookie: true,
         xfbml: true,
         version: 'v2.11'
@@ -30,25 +31,46 @@ Get fresh access token for our project using the Graph API Explorer -->
       FB.AppEvents.logPageView();
 
       FB.getLoginStatus(function(response) {
-        if (response.status === 'connected') {
-          // the user is logged in and has authenticated your
-          // app, and response.authResponse supplies
-          // the user's ID, a valid access token, a signed
-          // request, and the time the access token
-          // and signed request each expire
-          var uid = response.authResponse.userID;
-          var accessToken = response.authResponse.accessToken;
-          console.log(accessToken);
-          FB.api(
-            '/me',
-            'GET', {
-              "fields": "id,name,likes",
-              "access_token": accessToken
+          if (response.status === 'connected') {
+            // the user is logged in and has authenticated your
+            // app, and response.authResponse supplies
+            // the user's ID, a valid access token, a signed
+            // request, and the time the access token
+            // and signed request each expire
+            var uid = response.authResponse.userID;
+            var accessToken = response.authResponse.accessToken;
+
+            console.log(accessToken);
+
+            FB.api(
+              '/me',
+              'GET', {
+              "fields": "accounts"
             },
             function(response) {
-              console.log(response);
-            }
-          );
+              console.log(response.accounts.data[0].access_token);
+              var page_token = response.accounts.data[0].access_token;
+
+              FB.api(
+                '/kittiesonfleek',
+                'GET', {
+                  "fields": "fan_count,page_token,insights.metric(page_impressions)",
+                  "access_token" : accessToken
+                },
+                function(response) {
+                  console.log(response);
+                }
+              );
+              }
+            )
+
+
+
+
+
+
+
+
         } else if (response.status === 'not_authorized') {
           // the user is logged in to Facebook,
           // but has not authenticated your app
@@ -64,8 +86,10 @@ Get fresh access token for our project using the Graph API Explorer -->
             } else {
               console.log('User cancelled login or did not fully authorize.');
             }
-          }, {scope: 'email,user_likes',
-              return_scopes: true});
+          }, {
+            scope: 'email,user_likes,manage_pages, publish_pages, account_linking_token',
+            return_scopes: true
+          });
         }
       });
     };
