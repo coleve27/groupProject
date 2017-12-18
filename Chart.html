@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <!--Load the AJAX API-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+    <form>
+        <div class="form-group">
+            <label for="train-name">Train Name</label>
+              <input class="form-control" id="train-name" type="number">
+        </div>
+        <button class="btn btn-primary" id="submit" type="submit">Submit</button>
+    </form>
+
+  </body>
+  <script src="chart.js"></script>
+</html>
